@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: 1.15
-      - run: go test
+      - run: go test --coverprofile=coverage.out
       - run: go run math.go
 
       - name: Set up QEMU
@@ -33,3 +33,9 @@ jobs:
         with:
           push: true
           tags: macartyf/ci-course:latest
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

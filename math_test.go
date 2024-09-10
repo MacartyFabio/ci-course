@@ -17,3 +17,11 @@ func TestSub(t *testing.T) {
 		t.Errorf("Resultado da subtração é inválido: Resultado %d. Esperado: %d", total, 1)
 	}
 }
+
+func TesteMultiplicacao(t *testing.T){
+	total := Multiplicacao(2,3)
+
+	if total != 6 {
+		t.Errorf("Resultado da Multiplicação é inválido: Resultado %d. Esperado %d, total, 6)	
+	}
+}
